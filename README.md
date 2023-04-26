@@ -101,16 +101,16 @@
 
 `POST /employee/upload/doc/1?type=pen_card`
 
-# Body
+### Body
 
 \_ FormData
 \_\_ key pdf value file
 
-# Get employees Document
+### Get employees Document
 
 `GET /employees/get/document `
 
-# Get employee Document
+### Get employee Document
 
 \_ <int:id> :- employee Id
 
