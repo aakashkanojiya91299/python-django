@@ -72,10 +72,20 @@ def employee_upload_document(request,id):
 def employees_list_doc(request):
     if request.method == 'GET':
         employees_doc = employee_manager.get_employees_doc()
-        print(employees_doc)
         return JsonResponse({'employees_doc': employees_doc}, safe=False)
     else:
         return JsonResponse({'error': 'Invalid request method'})
+
+
+
+@csrf_exempt
+def employee_list_docs(request,id):
+    if request.method == 'GET':
+        employees_doc = employee_manager.get_employee_doc(id)
+        return JsonResponse({'employees_doc': employees_doc}, safe=False)
+    else:
+        return JsonResponse({'error': 'Invalid request method'})
+
 
 
 @csrf_exempt
