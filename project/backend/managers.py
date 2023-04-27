@@ -72,18 +72,21 @@ class EmployeeManager:
         with connections['default'].cursor() as cursor:
             cursor.execute('SELECT * FROM backend_employee WHERE id=%s', [id])
             row = cursor.fetchone()
-            response_data = []
-        for employee in row:
-            response_data.append({
-            'id': employee[0],
-            'name': employee[1],
-            'email': employee[2],
-            'phone': employee[3],
-            'address': employee[4],
-            "department":employee[5],
-        "designation":employee[6],
-        "salary":employee[7]
-        })
+            response_data = {}
+            if(row is not None):
+                response_data.update({
+                'id': row[0],
+                'name': row[1],
+                'email': row[2],
+                'phone': row[3],
+                'address': row[4],
+                "department":row[5],
+                "designation":row[6],
+                "salary":row[7]
+                })
+            else:
+                response_data = None
+               
         return response_data
 
     def create_employee(self, data):
