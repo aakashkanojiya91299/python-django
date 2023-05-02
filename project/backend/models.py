@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+
 
 # Create your models here.
 
@@ -28,7 +30,7 @@ class Employee_document(models.Model):
     document_type = models.CharField(max_length=100)
     EmployeeId = models.IntegerField()
     document = models.BinaryField()
-    uploaded_at = models.DateTimeField(auto_now_add=True,null=True, blank=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(null=True, blank=True)
     def __str__(self):
         return self.document_type
